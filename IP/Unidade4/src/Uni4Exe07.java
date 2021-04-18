@@ -10,7 +10,7 @@ public class Uni4Exe07 {
 
     if (grams > 50) {
       extraGrams = grams - 50;
-      extraGrams = (int) extraGrams / 20;
+      extraGrams = extraGrams / 20;
       extraValue = extraGrams * 0.45;
     }
 

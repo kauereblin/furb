@@ -13,14 +13,12 @@ public class Uni4Exe15 {
     monthsEmployed = sc.nextInt();
 
     if (monthsEmployed <= 12) {
-      salary *= 1.05;
+      System.out.println("O reajuste é de 5%");
     } else if (monthsEmployed >= 13 && monthsEmployed <= 48) {
-      salary *= 1.07;
+      System.out.println("O reajuste é de 5%");
     } else {
       System.out.println("Você é o CEO da empresa!");
-      return;
     }
-    System.out.println("O reajuste é de " + salary);
 
     sc.close();
   }

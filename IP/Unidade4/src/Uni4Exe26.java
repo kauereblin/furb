@@ -20,12 +20,14 @@ public class Uni4Exe26 {
         result = b * h / 2;
         System.out.println("A área do triângulo é " + result);
         break;
+
       case "Q":
         System.out.println("Digite o lado do quadrado:");
         s = sc.nextDouble();
         result = s * s;
         System.out.println("A área do quadrado é " + result);
         break;
+
       case "R":
         System.out.println("Digite a base e altura do retângulo:");
         b = sc.nextDouble();
@@ -33,12 +35,14 @@ public class Uni4Exe26 {
         result = b * h;
         System.out.println("A área do retângulo é " + result);
         break;
+
       case "C":
         System.out.println("Digite o raio do círculo:");
         r = sc.nextDouble();
         result = pi * r * r;
         System.out.println("A área do círculo é " + result);
         break;
+
       default:
         System.out.println("Opção inválida");
     }

@@ -16,10 +16,10 @@ public class Uni4Exe18 {
 
     difDays = payDay - dueDay;
 
-    if (difDays < 5) {
+    if (difDays < 0) {
       payment = installment * 0.9;
       System.out.println("Pagamento está em dia");
-    } else if (difDays == 5) {
+    } else if (difDays <= 5 ) {
       payment = installment;
     } else {
       payment = installment + installment * difDays * 0.02;
