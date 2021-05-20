@@ -15,7 +15,7 @@ public class Uni4Exe15 {
     if (monthsEmployed <= 12) {
       System.out.println("O reajuste é de 5%");
     } else if (monthsEmployed >= 13 && monthsEmployed <= 48) {
-      System.out.println("O reajuste é de 5%");
+      System.out.println("O reajuste é de 7%");
     } else {
       System.out.println("Você é o CEO da empresa!");
     }
