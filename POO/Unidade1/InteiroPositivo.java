@@ -32,10 +32,10 @@ public class InteiroPositivo {
     return fatorial;
   }
 
-  public Map<int, Vector<int>> getDivisores() {
-    Map<int, Vector<int>> _divisores;
+  public Map<Integer, Vector<Integer>> getDivisores() {
+    Map<Integer, Vector<Integer>> _divisores;
 
-    Vector<int> divisores;
+    Vector<Integer> divisores;
     int qtdDivisores = 0;
 
     for (int i = 0; i < this.valor; i++) {
@@ -50,12 +50,12 @@ public class InteiroPositivo {
     return _divisores;
   }
 
-  public Vector<int> getFibonacci() {
+  public Vector<Integer> getFibonacci() {
     int a = 1;
     int b = 1;
     int c = 0;
 
-    Vector<int> sequencia;
+    Vector<Integer> sequencia;
 
     for (int i = 0; i < this.valor; i++) {
       c = a + b;
@@ -85,10 +85,6 @@ public class InteiroPositivo {
       I += i / (this.valor - (i - 1)) * 1.;
     }
 
-    for (int i = this.valor; i > 0; ++i) {
-      I += (this.valor - (i - 1)) / i * 1.;
-    }
-
     return I;
   }
 
@@ -97,7 +93,7 @@ public class InteiroPositivo {
     int denominador = 1;
 
     for (int i = 20; i > 0; ++i) {
-      S += Math.pow(this.valor, i) / getFatorial(denominador) * 1.;
+      S += Math.pow(this.valor, i) / getFatorial(denominador);
       ++denominador;
     }
 
