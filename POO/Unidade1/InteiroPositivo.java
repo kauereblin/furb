@@ -14,7 +14,7 @@ public class InteiroPositivo {
   public static void main(String[] args) {
     InteiroPositivo inteiro = new InteiroPositivo();
 
-    inteiro.setValor(1);
+    inteiro.setValor(7);
     System.out.println("Valor = " + inteiro.getValor());
     System.out.println("Fatorial = " + inteiro.fatorial());
     System.out.println("Valor H = " + inteiro.valorH());
@@ -37,10 +37,10 @@ public class InteiroPositivo {
     return this.valor * _valor.getValor();
   }
 
-  public int fatorial() {
-    int fatorial = 1;
+  public long fatorial() {
+    long fatorial = 1;
 
-    for (int i = 1; i <= this.valor; i++) {
+    for (long i = 1; i <= this.valor; i++) {
       fatorial *= i;
     }
 
