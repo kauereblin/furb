@@ -118,7 +118,7 @@ public class InteiroPositivo {
     int denominador = 1;
 
     for (int i = 20; i > 0; --i) {
-      S += Math.pow(this.valor, i) / this.fatorial(denominador) * 1.;
+      S += Math.pow(this.valor, i) / this.fatorial(denominador);
       ++denominador;
     }
 
@@ -130,9 +130,9 @@ public class InteiroPositivo {
 
     for (int i = 1; i <= this.valor; i++) {
       if (i % 2 == 0) {
-        P -= i / (this.fatorial(i * 2) * 1.);
+        P -= i / this.fatorial(i * 2);
       } else {
-        P += i / (this.fatorial(i * 2) * 1.);
+        P += i / this.fatorial(i * 2);
       }
     }
 
