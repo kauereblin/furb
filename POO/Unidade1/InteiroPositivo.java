@@ -1,7 +1,8 @@
 /*
 Autor: Kaue Reblin
+Professor: Marcel Hugo
 Curso: Bacharelado em Ciência da Computação
-Turma: Noturno - B
+Turma: Noturno - B (SUP-CMP.168.0.3-2021/2)
 */
 
 import java.util.Vector;
@@ -10,17 +11,6 @@ import java.util.HashMap;
 
 public class InteiroPositivo {
   private int valor;
-
-  public static void main(String[] args) {
-    InteiroPositivo inteiro = new InteiroPositivo();
-
-    inteiro.setValor(7);
-    System.out.println("Valor = " + inteiro.getValor());
-    System.out.println("Fatorial = " + inteiro.fatorial());
-    System.out.println("Valor H = " + inteiro.valorH());
-    System.out.println("Valor I = " + inteiro.valorI());
-    System.out.println("Valor P = " + inteiro.valorP());
-  }
 
   public void setValor(int _valor) {
     if (_valor < 0)
