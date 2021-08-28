@@ -1,3 +1,10 @@
+/*
+Autor: Kaue Reblin
+Professor: Marcel Hugo
+Curso: Bacharelado em Ciência da Computação
+Turma: Noturno - B (SUP-CMP.168.0.3-2021/2)
+*/
+
 public class Expressao {
   private String exp;
   private static final char ABRE  = '(';
