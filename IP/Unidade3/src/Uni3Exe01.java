@@ -11,7 +11,6 @@ public class Uni3Exe01 {
     a = w * h;
 
     System.out.println("Area do terreno: " + a);
-
     sc.close();
   }
 }
