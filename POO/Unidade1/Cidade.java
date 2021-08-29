@@ -1,11 +1,11 @@
 public class Cidade {
-  private String  nome;
-  private String  UF;
+  private String nome;
+  private String UF;
   private Integer populacaoMasculina;
   private Integer populacaoFeminina;
   private Boolean calculado;
 
-  public Cidade(String nome = "", Integer populacaoFeminina = 0, Integer populacaoMasculina = 0) {
+  public Cidade(String nome, Integer populacaoFeminina, Integer populacaoMasculina) {
     this.nome = nome;
     this.populacaoFeminina = populacaoFeminina;
     this.populacaoMasculina = populacaoMasculina;
@@ -19,11 +19,11 @@ public class Cidade {
     this.UF = _UF;
   }
 
-  public void setPopulacaoFeminina(String _populacaoFeminina) {
+  public void setPopulacaoFeminina(int _populacaoFeminina) {
     this.populacaoFeminina = _populacaoFeminina;
   }
 
-  public void setPopulacaoMasculina(String _populacaoMasculina) {
+  public void setPopulacaoMasculina(int _populacaoMasculina) {
     this.populacaoMasculina = _populacaoMasculina;
   }
 

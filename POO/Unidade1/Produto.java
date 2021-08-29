@@ -6,16 +6,14 @@ public class Produto {
 
   public Produto(String nome, String descricao, Double precoUnitario, Integer desconto) {
     this.nome = nome;
-    this.descricao = desthis.descricao;
+    this.descricao = descricao;
     this.precoUnitario = precoUnitario;
     this.desconto = desconto;
   }
 
   @Override
   public String toString() {
-    return "Produto: " + this.name + "\n"
-    + "Descrição: " + this.descricao "\n"
-    + "Preço Unitário: " + this.precoUnitario "\n"
-    + "Desconto: " + this.desconto "\n"
+    return "Produto: " + this.nome + "\n" + "Descrição: " + this.descricao + "\n" + "Preço Unitário: "
+        + this.precoUnitario + "\n" + "Desconto: " + this.desconto + "\n";
   }
 }
