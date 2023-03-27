@@ -1,0 +1,70 @@
+pombo
+prop  = x / 100km/h
+trans = (64 * 1024 * 1048576 * 8) / (250 * 1048576) = 2097.152s
+
+fibra
+trans = (64 * 1024 * 1048576 * 8) / (100 * 1048576) = 5242.88s
+
+3600s = 1h
+
+(x / 100) * 3600 + 2097.152 = 5242.88
+36x = 3145.728
+x = 87.38km
+d) 85.3km
+
+--------------------------------------------------------------------------------
+
+pacote de 50 bytes
+
+5 routers
+tempo processamento = 0.1 ms
+taxa transmisão     = 20 Mbps
+distância           = 200 Km
+propagação          = 200.000 Km/s
+
+0.1ms + (200 / 200.000)s + ((50 * 8) / (20 * 1048576))s = 0.1ms + 1ms + 0.01ms = 1.11ms
+200 ms de enfileiramento
+
+--------------------------------------------------------------------------------
+
+Servidor:
+Vivo | Florianópolis
+
+Ping: 11ms
+Download: 51.3 Mbps
+Upload: 5.9 Mbps
+
+Contratados 50 Mbps de download
+
+--------------------------------------------------------------------------------
+
+GlobalSign Root CA
+    GTS Root R1
+        GTS CA 1C3
+            *.google.com
+
+*google.com
+Serial Number: 1E:28:92:8F:53:13:8D:D7:0A:73:D3:6F:20:C5:8E:D7
+
+Issued To
+Common Name (CN)	*.google.com
+Organization (O)	<Not Part Of Certificate>
+Organizational Unit (OU)	<Not Part Of Certificate>
+
+Issued By
+Common Name (CN)	GTS CA 1C3
+Organization (O)	Google Trust Services LLC
+Organizational Unit (OU)	<Not Part Of Certificate>
+
+Validity Period
+Issued On	Monday, March 6, 2023 at 5:16:21 AM
+Expires On	Monday, May 29, 2023 at 5:16:20 AM
+
+Fingerprints
+SHA-256 Fingerprint	95 3B 48 85 1E 86 EE 23 35 84 FE 72 C3 D0 1B E4 25 FD A4 DD FC EA B2 1B F4 E4 C4 12 E9 47 44 5B
+SHA-1 Fingerprint	AC C1 30 63 91 6B DC 79 D3 C8 51 9E 9A E7 8F EF DC A6 C5 C6
+
+
+
+
+
