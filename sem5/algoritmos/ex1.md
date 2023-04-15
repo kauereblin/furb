@@ -1,53 +1,64 @@
 1. Seja 𝑓(𝑛) = (𝑛 + 1)^2. Determine 𝑂(𝑔(𝑛)), 𝑑𝑒𝑡𝑒𝑟𝑚𝑖𝑛𝑎𝑛𝑑𝑜 𝑛0 𝑒 𝑎 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒
+
 C >= 1
 n0 = 0
 <br>
 
 2. Seja f(n) = n e 𝑔(𝑛) = 𝑛^2. Mostre que g(n) não é 𝑂(𝑛).
+
 Pois n^2 destoa muito da funcão de n
 <br>
 
 3. 7n − 2 é O(n)?
+
 C >= 7
-n0 = 2
+n0 = -2
 Sim, tendo constante e n0 possíveis
 <br>
 
 4. 3𝑛^3 + 20𝑛^2 + 5 é 𝑂(𝑛3)
+
 C >= 3
 n0 = -
 <br>
 
 5. 2𝑛^2 + 100𝑛log(𝑛) é 𝑂(𝑛^2)?
+
 Não pois o termo de maior significância é 𝑛log(𝑛)
 <br>
 
 6. Seja 𝑓(𝑛) = (𝑛 + 1)^2. Determine Ω(𝑔(𝑛)), 𝑑𝑒𝑡𝑒𝑟𝑚𝑖𝑛𝑎𝑛𝑑𝑜 𝑛0 𝑒 𝑎 c𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒.
+
 C <= 1
 n0 = -1
 <br>
 
 7. Seja f(n) = log(n) (crescente) e 𝑔(𝑛) = 𝑛. Mostre que g(n) não é Ω(𝑛).
+
 O(g(n)) - C <= 1 n = 0
 Ω(f(n)) - C >= log(n) n = 0
 g(n) sempre é maior que f(n)
 <br>
 
 8. 7n − 2 é Ω(n)?
+
 C <= 7
 n0 = 2
 <br>
 
 9. 3𝑛^3 + 20𝑛^2 + 5 é Ω(𝑛^3)?
+
 C <= 3
 n0 = -
 <br>
 
 10. 2𝑛^2 + 100𝑛log(𝑛) é Ω(𝑛^2)?
+
 Sim, pelo termo 100nlog(n) ser maior que n^2
 <br>
 
 11. Prove que 4𝑙𝑜𝑔2(𝑛) + 16 = 𝑂(𝑛).
+
 4log2(n) + 16 = 0
 log2(n) = -4
 n = 2^(-4)
@@ -56,18 +67,22 @@ Ou seja, para n >= 1/16, 4log2(n) + 16 = 𝑂(𝑛)
 <br>
 
 12. Prove que 4𝑙𝑜𝑔2(𝑛) + 16 = 𝑂(𝑙𝑜𝑔2(𝑛)).
+
 O termo de maior significa é log2(n), ou seja, tendo C >= 4 assim 4log2(n) + 16 = 𝑂(𝑙𝑜𝑔2(𝑛))
 <br>
 
 13. 2^(𝑛+1) = 𝑂(2^𝑛). 𝑉𝑒𝑟𝑑𝑎𝑑𝑒𝑖𝑟𝑜 𝑜𝑢 𝐹𝑎𝑙𝑠𝑜? 𝐽𝑢𝑠𝑡𝑖𝑓𝑖𝑞𝑢𝑒 𝑠𝑢𝑎 𝑟𝑒𝑠𝑝𝑜𝑠𝑡𝑎.
+
 Falso, pois expoente é mais significativo que a multiplicação por uma constante
 <br>
 
 14. 2^2𝑛 = 𝑂(2^𝑛). 𝑉𝑒𝑟𝑑𝑎𝑑𝑒𝑖𝑟𝑜 𝑜𝑢 𝐹𝑎𝑙𝑠𝑜? 𝐽𝑢𝑠𝑡𝑖𝑓𝑖𝑞𝑢𝑒 𝑠𝑢𝑎 𝑟𝑒𝑠𝑝𝑜𝑠𝑡𝑎.
+
 Falso, a multiplicação do expoente faz com que a constante tenha que depender de n
 <br>
 
 15. Considerando as questões 1 a 10 qual delas podemos chamar de ʘ(g(n)).
+
 1, 3, 4
 <br>
 
