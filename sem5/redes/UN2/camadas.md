@@ -82,7 +82,7 @@ As antenas convencionais são onidirecionais (para todas as direções), e as an
 ## Camada de Enlace
 
 Responsável por criar um canal de comunicação livre de erros entre dois nós adjacentes de uma rede.
-Tem objetivvo de tranmitir os quadros com os dados enviados pela camada de rede definindo seu formato e ações de envio e recebimento. Protocolo do enlace e física está implementado nas placas de redes.
+Tem objetivvo de transmitir os quadros com os dados enviados pela camada de rede definindo seu formato e ações de envio e recebimento. Protocolo do enlace e física está implementado nas placas de redes.
 
 Funcionalidades que o protocolo da camada tem:
 
@@ -120,7 +120,7 @@ Portanto, para o cálculo do CRC é preciso calcular o resto da divisão R tal q
 
 - **Ponto a ponto**: Terminação de um enlace enviando bits à outra terminação. O **PPP** (Point-to-Point Protocol) é o protocolo que se destaca.
 
-- **Difusão**: Vários emissores e receptores conectam-se a um mesmo, único e compartilhado canal de comunicação. O enlace gere o acesso ao meio de transmissão, pela recepção de quadros ao mesmo tempo. Os quadros envolvidos na colisão são perdidos e o canal de difusão é desperdiçado durante o intervalo da colisão.
+- **Difusão**: Vários emissores e receptores conectam-se a um mesmo, único e compartilhado canal de comunicação. O enlace gerencia o acesso ao meio de transmissão, pela recepção de quadros ao mesmo tempo. Os quadros envolvidos na colisão são perdidos e o canal de difusão é desperdiçado durante o intervalo da colisão.
 
 Em difusão, todos os dispositivos conectados recebem os pacotes emitidos, porém são descartados caso o endereço enviado junto ao pacote não seja o seu. Caso seja, o pacote é extraído e passado para o protocolo da camada de rede.
 
@@ -176,6 +176,8 @@ Para segurança da rede sem fio, é usado o **WEP (Wired Equivalent Privacy)**, 
 | Enlace    | Switch e AP (armazenam e encaminham quadros entre segmentos de LAN) | <<>> |
 | Rede      | Router (envia pacotes entre diferentes redes, podendo usar protocolos diferentes) | >^v< |
 | Aplicação | Getaway e Firewall (conecta duas partes de uma aplicação, com inspeção do conteúdo)| /// |
+
+![table symbol layers](\assets\symbols.png)
 
 #### HUBs
 
@@ -318,13 +320,8 @@ Solução para que possa dividir uma rede em sub-redes disponibilizando mais end
 > Ex: Classe B, 16 dos bits do número de equipamento, 6 bits são para sub-rede (2^6 = 64 sub-redes) e 10 bits para o número do equipamento (2^10 - 2 = 1022 equipamentos menos identificador da rede e difusor). Nesse exemplo, a máscara de sub-rede é 255.255.252.0/10.
 
 > Ex: Equipamento 130.10.150.205/22
->
-> × | 1° byte | 2° byte | 3° byte | 4° byte
-> --- | --- | --- | --- | ---
-> Endereço:  130.10.150.205 | 10000010 | 00001010 | 100101 10 | 11001101
-> Máscara:   255.255.252.0  | 11111111 | 11111111 | 111111 00 | 00000000
-> Sub-rede:  130.10.148.0   | 10000010 | 00001010 | 100101 00 | 00000000
-> Broadcast: 130.10.151.255 | 10000010 | 00001010 | 100101 11 | 11111111
+
+![example IPv4 address](\assets\addressIPv4.png)
 
 ## Endereços de Rede IPv6
 
@@ -342,11 +339,7 @@ Por exemplo, o endereço IPv6 FE80::1:123:67:AB80:1001/64 significa que os prime
 
 Provedores disponibilizam redes com prefixos de 48 bits, onde será possível ter 65,536 (2^16) redes locais e 2^64 endereços por rede.
 
-> × | 6 bytes | 2 bytes | 8 bytes
-> --- | --- | --- | ---
-> Endereço: FE80::1:123:67:AB80:1001/64 | FE80:0000:0000 | 0001 | 0123:0067:AB80:1001
-> Rede: FE80::/48                       | FE80:0000:0000 | 0000 | 0000:0000:0000:0000
-> Sub-rede: FE80:0:0:1::/64             | FE80:0000:0000 | 0011 | 0000:0000:0000:0000
+![example IPv4 address](\assets\addressIPv6.png)
 
 #### Distribuição de endereços IPv6
 

@@ -18,6 +18,10 @@ V. comparada aos pares trançados, a fibra óptica tem maior banda passante e im
 
 > na contenção com detecção de colisão
 
+
+1 - Computadores em redes IEEE 802.11 podem-se comunicar por dois modos básicos: usando uma infraestrutura coordenada por pontos de acesso à rede (Access Points — AP), ou no modo ad hoc, em que cada computador troca informações diretamente com os demais
+2 - Para poder transmitir por meio de um ponto de acesso, uma interface de rede deve realizar um procedimento de associação, que inclui o conhecimento de um campo identificador (Service Set Identifier — SSI)
+4 - Um mecanismo de requisição para transmissão (request to send — RTS) e de liberação para transmissão (Clear To Send — CTS) pode ser usado para evitar colisões
 > 1, 2, 4
 
 > associar-se a um SSID qualquer, desde que não haja outra estação sem fio transmitindo simultaneamente no canal 3
@@ -67,3 +71,22 @@ III. As sub-redes propostas para as Nuvens 1 e 4 atendem às demandas de equipam
 IV. O plano de endereçamento proposto de acordo com a tabela não é suficiente para o atendimento da quantidade de equipamentos propostos no projeto.
 V. No site principal existe um erro de alocação das faixas, que pode ser corrigido utilizando uma faixa única 10.1.0.0/23.
 > III, IV e V.
+
+# Roteamento
+
+> Diretamente para 192.0.2.50 e encaminhando para 192.0.2.1, respectivamente
+
+# Algoritmos de Roteamento
+
+I. Um roteamento entre o SA 1 e o SA 2 utiliza dois algoritmos diferentes: RIP nos roteadores internos do SA e BGP entre os SAs.
+III. O OSPF implementado no SA 2 utiliza o endereço de destino do cabeçalho IP para tomada de decisão e escolha da melhor rota.
+>I e III.
+
+> Border Gateway Protocol (BGP)
+
+
+III. Um pacote IPv4 pode ser fragmentado por qualquer dispositivo na rede, se o tamanho máximo de MTU da rede onde os pacotes vão transitar for menor que o tamanho do pacote a ser transmitido.
+IV. Ao enviar um pacote IPv4, a máscara de sub-rede é utilizada pelo computador ou roteador para identificar se o computador de destino pertence a esta mesma sub-rede.
+> III e IV.
+
+> Alterar a máscara de sub-rede da estação PROFESSORES01 para 255.255.0.0.
