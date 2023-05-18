@@ -177,7 +177,7 @@ Para segurança da rede sem fio, é usado o **WEP (Wired Equivalent Privacy)**, 
 | Rede      | Router (envia pacotes entre diferentes redes, podendo usar protocolos diferentes) | >^v< |
 | Aplicação | Getaway e Firewall (conecta duas partes de uma aplicação, com inspeção do conteúdo)| /// |
 
-![table symbol layers](\assets\symbols.png)
+![table symbol layers](./assets/symbols.png)
 
 #### HUBs
 
@@ -321,7 +321,7 @@ Solução para que possa dividir uma rede em sub-redes disponibilizando mais end
 
 > Ex: Equipamento 130.10.150.205/22
 
-![example IPv4 address](\assets\addressIPv4.png)
+![example IPv4 address](./assets/addressIPv4.png)
 
 ## Endereços de Rede IPv6
 
@@ -339,7 +339,7 @@ Por exemplo, o endereço IPv6 FE80::1:123:67:AB80:1001/64 significa que os prime
 
 Provedores disponibilizam redes com prefixos de 48 bits, onde será possível ter 65,536 (2^16) redes locais e 2^64 endereços por rede.
 
-![example IPv4 address](\assets\addressIPv6.png)
+![example IPv4 address](./assets/addressIPv6.png)
 
 #### Distribuição de endereços IPv6
 
