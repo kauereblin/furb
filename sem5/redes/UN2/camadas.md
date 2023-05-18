@@ -373,58 +373,62 @@ O **NAT (Network Address Translation)**, definido na RFC 3022, usa o **IP masque
 
 ## Camada de Rede - Roteamento
 
+A principal da camada de rede é o roteamento, que é o processo de escolha do melhor caminho para um pacote chegar ao seu destino.
 
+A conexão de um router com uma rede é chamada de interface. Para o roteamento funcionar, cada interface deve ser um endereço de rede / sub-rede distinto
 
+Cada router possui uma **tabela de roteamento**. Podendo ser feitos com algoritmos de roteamento **adaptativos** ou **estáticos**
 
+#### Mecanismo de Encaminhamento de Quadros
 
+Os endereços estrangeiros para população dessa tabela são feitos com o **ARP (Address Resolution Protocol)**.
 
+Cada interface é identificado por seu endereço IP e pelo correspondente endereço MAC, além de um módulo ARP embutido.
 
+#### Mecanismo de Roteamento
 
+Cada pacote IP tem o IP do equipamento de origem e destino, preenchidos pelo equipamento que deseja encaminhá-lo.
 
+Por exemplo, um pacote transmitido na mesma rede é verificado na tabela ARP do router para ver se o endereço está a um salto e pode ser transmitido diretamente.
 
+Quando for entre redes diferentes, o pacote é encaminhado com seu IP origem e destino, porém agora o router será necessário para encaminhar o pacote para a interface de menor caminho.
 
+## Algoritmos de Roteamento
 
+Serão apresentados dois algoritmos adaptativos:
+- Vetor de Distância
+- Estado de Enlace
 
+### Vetor de Distância
 
+A tabela é mantida fornecendo a menor distância conhecida, a cada uma das redes de destino e determina qual interface deve ser usada. Essa tabela é atualizada conforme troca de informações com os routers vizinhos. A principal estrutura desse algoritmo é a tabela de distância.
 
+Com a distribuição de menores distâncias progressiva, até que todos os routers convirjam demandam um tempo. Sendo considerado um *algoritmo de roteamento decentralizado*.
 
+### Roteamento por Estado de Enlace
 
+Considera como dados de cálculo a conectividade entre todos os routers da rede e cada uma das distâncias dos enlaces entre eles. A principal estrutura desse algoritmo é a tabela de enlaces, com a distância entre os enlaces da rede.
 
+O router faz a distribuição de sua tabela do seu conhecimento da topologia da rede para todos os routers da rede, caso ocorra atualização em alguma de suas entradas. Por ter mapeamento total da rede é considerado um *algoritmo de roteamento global*.
 
+## Roteamento Hierárquico
 
+Para resolver problema de escala e autonomia administrativa, criou-se o conceito de **Autonomous System (AS)** que possibilita o agrupamento de router sob mesmo controle administrativo.
 
+### Protocolos de Roteamento
 
+**- Intra-AS**
+Para situações intra-AS, é usado o RIP / RIPng (Routing Information Protocol), baseia-se no algoritmo de vetor de distância, determinado pela quantidade de saltos.
 
+Além do RIP existe o **OSPF (Open Shortest Path First)**, baseado no algoritmo de estado de enlace, onde monta a topologia das redes em um grafo direcionado das AS. Tendo um menor tempo de convergência das tabelas de roteamento.
 
+**- Inter-AS**
+O BGP4 (Border Gateway Protogol) baseia-se no algoritmo de vetor de distância, considerando os caminhos menores e condições de contorno.
 
+## Multidifusão na Internet
 
+O protocolo IP aceita multidifusão, permitindo uma maior propagação. Os IPv4 usam a classe D para identificar os grupos e o IPv6 usa o endereço FF00::/8.
 
+O grupo é criado com um equipamento associa-se a um IP de multidifusão e os demais equipamentos que desejam receber os pacotes se associam ao grupo também. Os routers da rede determinam qual o melhor caminho para a distribuição dos pacotes e quais nós serão usados para alcançar todos.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+O protocolo usado para gerenciar os grupos é o IGMP (Internet Group Management Protocol).
