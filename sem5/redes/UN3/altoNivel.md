@@ -276,24 +276,149 @@ A **MIB (Management Information Base), ou modelo de informação de gerência**,
 
 ### World Wide Web
 
+Tim Berners-Lee do CERN (European Organization for Nuclear Research) criou a **World Wide Web** em 1989, com o objetivo de compartilhar informações entre pesquisadores de física de partículas.
+
+**Navegador internet** interpreta as **páginas** distribuídas nos **sites** acessados por **links**
+
+Em 1994 fundou-se a World Wide Web Consortium (W3C – www.w3c.org), para padronização e incentivar a interoperabilidade dos servidores.
+
+O protocolo de aplicação utilizado para a transferência de páginas internet entre sistemas computacionais é o **HTTP (Hypertext Transfer Protocol)**.
+
+Comunicação entre navegador internet e servidor internet em requisições e respostas de páginas através do HTTP.
+
+As páginas são localizadas por uma URL (Uniform Resource Locator).
+
+Uma URL completa tem:
+
+- Protocolo para obter o arquivo (http://)
+
+- Endereço do servidor - nome do domínio traduzido por um DNS (www.ab.com.br/)
+
+- Diretório dentro do servidor onde está o arquivo (diretoriofoda/)
+
+- Arquivo (pagina.html)
+
+#### Páginas Internet Estáticas
+
+As páginas são arquivos estáticos (objetos) com referências a mais objetos.
+
+A W3C desenvolveu mais as linguagens **XML (Extensible Markup Language)** para dados e **XSL (Extensible Style Language)** para formatação.
+
+Para comunicação por XML independente da linguagem e sistema é usado o **SOAP (Simple Object Access Protocol)**, requisitando e recebendo um arquivo XML, garantindo homogenia.
+
+#### Páginas Internet Dinâmicas
+
+Javascript
+
+**CGI (Common Gateway Interface)**: mecainsmo de comunicação entre o servidor e programas externos, que podem ser escritos em qualquer linguagem de programação.
+
+Servlet Java: programa executado no servidor, escrito em Java, que recebe requisições e envia respostas, deixando de funcionar após término da conexão do cliente.
+
+Outra forma é o **PHP (Hypertext Preprocessor)**, mais simples que CGI. **JSP** - Java - e **ASP** - Visual Basic - também são usados como PHP.
+
+#### Comunicação entre Programa Cliente e Servidor
+
+Há dois tipos de conexões HTTP:
+
+- **Persistentes**: Criada uma conexão para cada grupo de objetos da página.
+
+- **Não persistentes**: Cada objeto da página é transferido em uma conexão diferente.
+
+Uma **mensagem HTTP de requisição** é composta por uma linha inicial (denominada linha de requisição), várias linhas adicionais contendo opções específicas para a requisição (denominadas linhas de cabeçalho) e uma linha final em branco.
+
+Tipos de Mensagens de Requisição:
+
+- **GET** Solicita um arquivo
+
+- **HEAD** Solicita apenas o cabeçalho da mensagem de resposta sem o arquivo
+
+- **PUT** Envia um arquivo
+
+- **POST** Anexa dados a um arquivo no servidor
+
+- **DELETE** Exclui um arquivo no servidor
+
+- **TRACE** Envia de volta a requisição com propósito de depuração
+
+- **OPTIONS** Permite consultar o servidor sobre suas propriedades ou sobre as de um arquivo
+
+Uma **mensagem HTTP de resposta** é composta por uma linha inicial (denominada linha de status), várias linhas adicionais contendo opções específicas para a resposta (denominadas linhas de cabeçalho), uma linha em branco e o conteúdo do objeto propriamente dito.
+
+Para aumentar o desempenho, o **proxy** armazena as páginas mais acessadas em um cache, evitando o acesso ao servidor.
+
+#### Cookie
+
+O cookie é um mecanismo que alguns servidores internet utilizam para acompanhar os acessos sucessivos de um determinado usuário, implementando assim um conceito de sessão de usuário.
+
 ### Redes Multimídia
 
+A solução para a transmissão de multimídia pela internet reside em classificar todo o seu tráfego, definir prioridades para diferentes aplicações e reservar banda de transmissão
 
+O IETF desenvolveu um modelo chamado **Integrated Services (IntServ)** que inclui a transmissão em tempo real à arquitetura internet. Tendo a capacidade de reservar recursos através da rede por um controle de admissão.
 
+Essa reserva pode usar o **RSVP (Resource Reservation Protocol)**, implementado em cada roteador.
 
+Outro modelo QoS é o **Differentiated Services (DiffServ)**, sem a necessidade de usar uma reserva. Usa o campo **ToS (Type of Service)** do cabeçalho IP, escolhendo serviços para minimizar custo e/ou maximizar fluxo. Como não é implementado como RSVP, cada router na rede só conhece o valor da marcação do pacote a ele encaminhado.
 
+#### Aplicações Multimídia
 
+- Fluxo contínuo de áudio e vídeo armazenado
 
+> O tempo decorrido entre a solicitação de uma dessas ações pelo cliente e a execução da ação deve ser da ordem de até 5 segundos para que a resposta seja considerada aceitável
 
+- Fluxo contínuo de áudio e vídeo em tempo real
 
+> O tempo decorrido entre a solicitação do fluxo contínuo até o início da sua reprodução deve ser da ordem de até 10 segundos para que a resposta seja considerada tolerável.
 
+Áudio interativo em tempo real é denominado **Telefonia IP**
 
+Já vídeo são **Videoconferência e Videofonia IP**.
 
+O tempo aceitável dessa aplicação é de 0.5s.
 
+Antes que o áudio ou o vídeo possa ser transmitido pela internet, eles precisam ser **digitalizados** e **comprimidos**.
 
+Digitalização de áudio é feita com **PCM (Pulse Code Modulation)**.
 
+Para compressão pode-se utilizar GSM, G.729, G.723.3, mas a principal é o **MPEG-1 (Moving Picture Experts Group)** baseado no MP3, também usado para vídeo.
 
+#### Fluxo Contínuo de Áudio e de Vídeo
 
+Usado o **Real Time Protocol (RTP)** para o transporte de áudio e vídeo.
+
+**Tocador de mídias (media player)** gerencia o fluxo com os processos:
+
+- Descompressão
+
+- Remoção do Jitter: Jitter é a variação de tempo de atraso entre origem e destino, usando bufferização local.
+
+- Correção de erros: Redundância de pacotes ou interpolação.
+
+- Interface Gráfica
+
+**RTSP (Real-time Streaming Protocol)** criado para permitir as ações pausar, reproduzir, gravar, reposicionar, avançar e retroceder.
+
+#### Fluxo Contínuo de Áudio e de Vídeo Interativo
+
+O **SIP (Session Initiation Protocol)** é um protocolo de sinalização para estabelecer, modificar e terminar sessões multimídia interativas.
+
+- Mecanismo para estabelecer e encerrar chamadas por uma rede TCP/IP.
+
+- Mecanismo para localizar um destinatário na rede.
+
+- Mecanismo para gerenciamento de chamadas.
+
+Equipamentos SIP também incluem **Media Gateways**, **Gatekeepers**, **Telefones IP** e **ATAs (Analog Telephone Adapter)**.
+
+Os media gateways permitem a comunicação entre terminais SIP.
+
+Os gatekeepers são servidores SIP que gerenciam as chamadas.
+
+Os ATAs são adaptadores dedicados que permitem que telefones tradicionais se conectem diretamente em uma rede TCP/IP tornando-os telefones IP.
+
+Durante o processo de estabelecimento de uma chamada, a mensagem SIP de convite contém os parâmetros **SDP (Session Description Protocol)** para identificação e controle da conexão.
+
+**MGCP (Media Gateway Control Protocol)** é usado entre terminais SIP e aparelhos telefônicos
 
 
 
