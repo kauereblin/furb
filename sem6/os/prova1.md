@@ -520,3 +520,71 @@ São divididas em: **Gerência de processo**, **Gerência de memória**, **Gerê
 
 ### Modos de Acesso
 
+Operações I/O só podem ser feitas pelo SO
+
+Instruções que violam o sistema: Privilegiadas; Sem perigo: Não privilegiadas.
+
+Para privilegiadas, precisa implementar o modo de acesso:
+
+- Modo Usuário: Sem privilégios.
+
+- Modo Kernel: Acesso total ao conjunto de instruções.
+
+Registrados especial determina se pode ser executada pela aplicação.
+
+Núcleo sempre roda em modo Kernel.
+
+Passos de execução:
+
+- Requisita Operação (Systema Call)
+
+- Chamada muda para modo Kernel
+
+- Processa
+
+- Retorna para modo Usuário
+
+#### Desenvolvimento de SO
+
+- Monolítica;
+
+- Em camadas
+
+- Cliente-Servidor
+
+##### Monolíticos
+
+Conjunto de rotinas que interagem livremente umas com as outras (vários procedimentos)
+
+##### Em Camadas
+
+Código construído em várias camadas;
+
+Níveis se comunicam, isolando facilitando alteração e depuração.
+
+Há proteção das camadas mais internas
+
+##### Cliente-Servidor
+
+Torna o núcleo menor e mais simples;
+
+Divide o SO em processos, responsáveis por serviços: Cliente que solicita um serviço; Servidor que responde a solicitação.
+
+Resposta também é uma mensagem, que o núcleo é responsável pela comunicação
+
+O servidor executa em modo usuário
+
+Caso ocorra erro no servidor, ele para sem comprometer o sistema
+
+Pode ser distribuído
+
+Fortemente acoplado
+
+Fracamente acoplado
+
+Difícil de implementar por fazer acesso direto ao hardware
+
+Geralmente usa-se Cliente-Servidor/Camadas
+
+
+
