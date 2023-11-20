@@ -104,4 +104,17 @@ Despachar um processo (dispatch).
 
 #### Comunicação entre Processos
 
-Troca de informações através de um buffer, um processo lê outro grava, deve uma sincronização
+Troca de informações através de um buffer, há uma sincronização
+
+**Problemas de compartilhamento de recursos**:
+Acesso simultâneo de arquivos, Alteração de variáveis na memórias
+
+**Soluções**:
+Exclusão Mútua: impede acessar um mesmo recurso usado, usando critical section para alteração das variáveis e fazer o sincronismo no final.
+
+Problemas:
+- Processos não podem bloquear outro se estiver fora da CS dele;
+- Nenhum processo pode esperar para entrar na sua CS (starvation)
+- Evitar que mais de um processo execute sua CS
+- Sincronização condicional: Aguarda o buffer de sincronismo
+
