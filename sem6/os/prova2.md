@@ -345,3 +345,25 @@ Cada processo implementa sua própria **tabela de mapeamento**.
 
 #### Paginação
 
+Espaço de endereçamento virtual (pág virtual) e real (frames) são dividido em blocos de mesmo tamanho. (512 a 64K bytes)
+
+**Tabela de páginas**: Mapeia o endereço virtual para o real. Cada entrada da tabela é um endereço de frame.
+
+Cada processo tem um ETP (Entrada na tabela de página). Possui a localização da página virtual e bit de carregado na memória física.
+
+**Page Fault**: Verifica se a página está carregada
+
+**Demand Pages**: Carrega apenas as páginas que são necessárias
+
+**Paginação antecipada**: Tenta prever páginas necessárias
+
+##### Working Set
+
+Conjunto de páginas constantemente usadas pelos processos.
+
+Sempre que ocorre page fault o SO precisa fazer uma I/O, sempre evitada
+
+Working Set grande = pouco page fault | Working Set pequeno = muito page fault
+
+##### Localidade
+
