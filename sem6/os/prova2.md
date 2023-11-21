@@ -271,4 +271,77 @@ Problemas com cada processo. Muita I/O ou uso da CPU
 
 - Sistemas fracamente aclopados fazem seu escalonamento local
 
-- Fortemente acoplado tem uma *fila de pronto* para os processadores, determinando pelo priemeiro disponível. Implementando Exclusão Mútua 
+- Fortemente acoplado tem uma *fila de pronto* para os processadores, determinando pelo priemeiro disponível. Implementando Exclusão Mútua
+
+# Gerenciamento de Memória
+
+O Gerente de Memória do sistema deve garantir segurança e eficiência.
+
+**Memória principal** onde ficam os programas a serem usados pelo processador;
+
+**Memória secundária** é o meio permanente;
+
+## Memória Principal
+
+#### Alocação Contígua Simples
+
+Divide a memória principal em 2 (SO e programas do usuário)
+
+Usuário tem total acesso à memória, inclusive do SO, podendo destruí-lo. Protegido através de um registrador
+
+**Access Violation** acontece quando um programa usa memória que não foi alocada a ele
+
+Problemas de limitação de acesso pode ser solucionado por overlay
+
+- Técnica de **Overlay**: Divide o programa em módulso, usando uma mesma área de memória. A área de overlay é definida pelo maior disponível. Se preocupando apenas com transferência disco / memória.
+
+#### Alocação Particionada
+
+Permite que vários programas estejam na memória ao mesmo tempo
+
+- **Estática**: Memória dividida em tamanhos estáticos. Mudadas apenas na reinicialização.
+  - Absoluta: Programas referem a única memória, sem usar outra área
+  - Relocável: Qualquer área que suporte o tamanho do programa executa
+
+  Programas geralmente não ocupam toda a partição. Mesmo assim, programas grandes não são executados com partições adjacentes.
+
+- **Dinâmica**: Dividida em tamanhos variáveis. Cada programa usa o espaço necessário. Fragmentação na saída, não permitindo outros programas executarem.
+
+Soluções: Juntar partes adjacentes; Relocar programas (overhead).
+
+Estratégias de alocação:
+
+- **First Fit**: Aloca o primeiro espaço que cabe o programa (mais eficiente)
+
+- **Best Fit**: Aloca o menor espaço que cabe o programa (aumenta a fragmentação)
+
+- **Worst Fit**: Aloca o maior espaço que cabe o programa (dimini a fragmentação)
+
+#### Swapping
+
+Resolve o problema de falta de espaço na memória usando a memória secundária. Piorando a performance pela relocação dinâmica
+
+### Memory Management Unit - MMU
+
+Componente do hardware que faz a tradução de endereços lógicos para físicos
+
+Mecanismo de proteção de memória:
+- **Registradores de limite**: Testa o intervalo. Se estiver fora, gera um erro
+- **Registradores de base e limite**: Testa o limite inicial para o endereço lógico, soma ao registrador base para obter o físico
+
+### Memória Virtual
+
+Memória principal e secundária são combinadas.
+
+Permite execução de programas que não foram carregados na memória principal
+
+**Espaço de endereçamento virtual**: Referência da posição virtual que um dado se encontra.
+
+Em runtime, o endereço virtual é traduzido para físico.
+
+**Mapeamento**: Tradução de endereço virtual para físico. Programa não precisa estar contíguo na memória real para ser executado.
+
+Cada processo implementa sua própria **tabela de mapeamento**.
+
+#### Paginação
+
