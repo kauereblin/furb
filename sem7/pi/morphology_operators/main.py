@@ -1,3 +1,7 @@
+# Autor: Kaue Reblin
+# TurmaL: Processamento de Imagem - SUP-CMP.187.0.2-2024/1
+# Docente: Aurélio Faustino Hoppe
+
 from matplotlib import pyplot as plt
 import cv2
 import numpy as np

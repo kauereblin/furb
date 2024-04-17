@@ -8,34 +8,14 @@ Pode ser feito de várias formas a partir de controle computacional:
 
 - Unindo materiais;
 
-- Solificando resinas;
-
-Uma vantagem da impressão 3D é a habilidade de produzir formas complexas inviáveis de contruir com a mão;
+- Solidificando resinas;
 
 ### História
 
-##### Décadas 1940 - 1950
+##### Concepção
 
 O conceito geral foi concebido por Murray Leinster em 1945, descrevendo um braço mecânico que ejetava plástico pela ponta onde se solificava no ar.
 E Raymond F. Jones referiu a um spray molecular com a ideia semelhante, em 1950.
-
-##### Década 1970
-
-Em 1971, Johannes F Gottwald patenteou o Gravador de Metal Líquido (Liquid Metal Recorder), uma máquina que injetava metal líquido em formas e retirava as peças desejadas.
-Foi a primeira patente descrita que identifica-se como impressão 3D;
-
-##### Década 1980
-
-Abril de 1980, Hideo Kodama inventou dois métodos de fabricação de peças tridimenssionais de plástico a partir de endurecimento fotográfico de polímeros termofixos.
-Em 16/07/1984, Bill Masters 
-
-##### Década 1990
-
-##### Década 2000
-
-##### Década 2010
-
-##### Década 2020
 
 #### Benefícios
 
@@ -49,11 +29,7 @@ Ademais, no campo de microondas, são possíveis criar formas geométricas compl
 
 ##### Modelagem
 
-
-
 ##### Impressão
-
-
 
 ##### Finalização
 
