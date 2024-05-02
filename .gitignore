@@ -73,6 +73,11 @@ nbactions.xml
 nb-configuration.xml
 
 ##############################
+## Visual Studio
+##############################
+.vs
+
+##############################
 ## Visual Studio Code
 ##############################
 .vscode/
