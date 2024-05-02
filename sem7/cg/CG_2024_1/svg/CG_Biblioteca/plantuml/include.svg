@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="208px" preserveAspectRatio="none" style="width:280px;height:208px;background:#FFFFFF;" version="1.1" viewBox="0 0 280 208" width="280px" zoomAndPan="magnify"><defs/><g><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="252" x="5" y="19">Dot Executable: /opt/local/bin/dot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="134" x="5" y="35.4883">File does not exist</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="268" x="5" y="51.9766">Cannot find Graphviz. You should try</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="5" y="68.4648"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="74" x="5" y="84.9531">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="5" y="101.4414">testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="66" x="5" y="117.9297">@enduml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="5" y="134.418"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="15" x="10" y="150.9063">or</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="5" y="167.3945"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="220" x="5" y="183.8828">java -jar plantuml.jar -testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="5" y="200.3711"> </text><!--MD5=[6f0216d24dd34ce55c9e827446eea646]
+@startuml
+!include ./CameraPerspective.puml
+!include ./Utilitario.puml
+!include ./Transformacao4D.puml
+!include ./BBox.puml
+!include ./Ponto4D.puml
+!include ./Matematica.puml
+!include ./Shaders/Shader.puml
+!include ./Shaders/Texture.puml
+!include ./obj/Debug/net8.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.puml
+!include ./obj/Debug/net8.0/CG_Biblioteca.AssemblyInfo.puml
+@enduml
+
+@startuml
+class Camera {
+    + Camera(position:Vector3, aspectRatio:float)
+    + AspectRatio : float <<set>>
+    + Pitch : float <<get>> <<set>>
+    + Yaw : float <<get>> <<set>>
+    + Fov : float <<get>> <<set>>
+    + GetViewMatrix() : Matrix4
+    + GetProjectionMatrix() : Matrix4
+}
+Camera - -> "Position" Vector3
+Camera - -> "Front" Vector3
+Camera - -> "Up" Vector3
+Camera - -> "Right" Vector3
+abstract class Utilitario {
+    + {static} CharProximo(atual:char) : char
+    + {static} TeclaUpperConsole(msg:String, Control:bool, Shift:bool) : char
+    + {static} NDC_TelaSRU(largura:int, altura:int, mousePosition:Ponto4D) : Ponto4D
+    + {static} AjudaTeclado() : void
+}
+class Transformacao4D {
+    {static} + <<readonly>> DEG_TO_RAD : double = 0.017453292519943295769236907684886
+    + Transformacao4D()
+    + ObterDadosOpenTK() : Matrix4
+    + AtribuirIdentidade() : void
+    + AtribuirTranslacao(tx:double, ty:double, tz:double) : void
+    + AtribuirEscala(sX:double, sY:double, sZ:double) : void
+    + AtribuirRotacaoX(radians:double) : void
+    + AtribuirRotacaoY(radians:double) : void
+    + AtribuirRotacaoZ(radians:double) : void
+    + MultiplicarPonto(pto:Ponto4D) : Ponto4D
+    + MultiplicarMatriz(t:Transformacao4D) : Transformacao4D
+    + ObterElemento(index:int) : double
+    + AtribuirElemento(index:int, value:double) : void
+    + ObterDados() : double[]
+    + AtribuirDados(data:double[]) : void
+    + <<override>> ToString() : string
+}
+class BBox {
+    + BBox()
+    + Atualizar(matriz:Transformacao4D, pontosLista:List<Ponto4D>) : void
+    + ProcessarCentro() : void
+    + Dentro(pto:Ponto4D) : bool
+    + obterMenorX : double <<get>>
+    + obterMenorY : double <<get>>
+    + obterMenorZ : double <<get>>
+    + obterMaiorX : double <<get>>
+    + obterMaiorY : double <<get>>
+    + obterMaiorZ : double <<get>>
+    + Desenhar(matrizGrafo:Transformacao4D) : void
+    + <<override>> ToString() : string
+}
+BBox - -> "obterCentro" Ponto4D
+class Ponto4D {
+    + Ponto4D(x:double, y:double, z:double, w:double)
+    + Ponto4D(pto:Ponto4D)
+    + X : double <<get>> <<set>>
+    + Y : double <<get>> <<set>>
+    + Z : double <<get>> <<set>>
+    + W : double <<get>>
+    + <<override>> ToString() : string
+}
+abstract class Matematica {
+    + {static} GerarPtosCirculo(angulo:double, raio:double) : Ponto4D
+    + {static} GerarPtosCirculoSimetrico(raio:double) : double
+    + {static} Dentro(bBox:BBox, pto:Ponto4D) : bool
+    + {static} distanciaQuadrado(ptoA:Ponto4D, ptoB:Ponto4D) : double
+    + {static} distancia(ptoA:Ponto4D, ptoB:Ponto4D) : double
+    + {static} ScanLineInterseccao(yi:double, y1:double, y2:double) : double
+    + {static} ScanLineCalculaXi(x1:double, x2:double, ti:double) : double
+    + {static} ScanLine(ptoClique:Ponto4D, ptoIni:Ponto4D, ptoFim:Ponto4D) : bool
+}
+class Shader {
+    + <<readonly>> Handle : int
+    + Shader(vertPath:string, fragPath:string)
+    + Use() : void
+    + GetAttribLocation(attribName:string) : int
+    + SetInt(name:string, data:int) : void
+    + SetFloat(name:string, data:float) : void
+    + SetMatrix4(name:string, data:Matrix4) : void
+    + SetVector3(name:string, data:Vector3) : void
+}
+class Texture {
+    + <<readonly>> Handle : int
+    + {static} LoadFromFile(path:string) : Texture
+    + Texture(glHandle:int)
+    + Use(unit:TextureUnit) : void
+}
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 14:01:30 BRT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: BR
+--></g></svg>
