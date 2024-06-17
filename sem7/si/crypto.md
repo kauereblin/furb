@@ -216,9 +216,24 @@ Usa chaves de 1024 a 4096 bits.
 - Calcular o produto;
 - Calcular a função totiente;
 - Definir o expoente (coprimo (MDC = 1) de n)
-- Calcular d
+- Calcular d | (e * d) % tot(n) = 1
 
-#### Assinatura Digital
+Como exemplo:
+m: mensagem
+c: mensagem cifrada
+e: expoente chave pública
+d: expoente chave privada
+n: módulo
+
+> Cifragem: c = m^e % n
+> Decifragem: m = c^d % n
+
+> e = 17 | d = 13 | n = 33
+
+> c = 5^17 % 33 = 27
+> d = 27^13 % 33 = 15
+
+## Assinatura Digital
 
 O destinatário, utiliza a chave pública do emissor para decifrar a mensagem. Caso o conteúdo é legível, é seguro afirmar que a mensagem foi enviada pelo emissor, com a chave privada.
 
@@ -232,7 +247,7 @@ Garante quem é o emissor, não repúdio e integridade.
 
 Cada mensagem tem sua própria assinatura digital.
 
-Além do resumos, é adicionado um identificador do algoritmo de hash.
+Além do resumo, é adicionado um identificador do algoritmo de hash.
 
 Bytes são usados para preencher o bloco com o tamanho da chave.
 
@@ -240,7 +255,7 @@ Dado cifrado = resumo + identificador + bytes de preenchimento
 
 Além de *RSA* ser onipresente, existe o **DSA (Digital Signature Algorithm)** e **ECDSA (Elliptic Curve Digital Signature Algorithm)**.
 
-#### Certificado Digital
+### Certificado Digital
 
 Associa um nome à uma chave pública, feito pela Autoridade Certificadora (AC).
 
@@ -262,6 +277,12 @@ Para codificar um certificado em formato binário, usa o conjunto de regras **DE
 
 As ACs controlam os ciclos de vida dos certificados.
 
+Depois de registrado o usuário:
+
+- O usuário emite a chave pública para a AC por meio de uma solicitação de assinatura de certificado - CSR (Certificate Signing Request).
+
+- Ou a Autoridade Certificadora gera um par de chaves para o usuário.
+
 ### Modelos de Confiança
 
 Descrevem o relacionamento entre as ACs e os usuários finais.
@@ -271,6 +292,10 @@ Descrevem o relacionamento entre as ACs e os usuários finais.
 - Certificação Cruzada: Cada AC opera independentemente. Permite integração entre diferentes infraestruturas de ACs.
 
 Atualmente a AC Raiz do Brazil é a **ICP Brasil**.
+
+##### Keystore
+
+Uma Keystore é um repositório de armazenamento de chaves privadas, certificados e/ou chaves simétricas.
 
 ## SSL (Secure Sockets Layer) 1994
 
@@ -286,7 +311,10 @@ No navegador, a mensagem ocorre ao usar *HTTPS* para acessar o servidor.
 
 2 Server Hello - Em resposta o servidor envia uma mensagem "server hello" (Algoritmo escolhido, Certificado, Pode solicitar certificado do cliente).
 
-3 - Verificação de certificado - Valida a cadeia de certificados. O cliente avalia pertence a quem afirma ser. Datas verificadas. Conferencia de revogação com CRL e ARL.
+3 - Verificação de certificado - Valida a cadeia de certificados. O cliente avalia se pertence a quem afirma ser. Datas verificadas. Conferencia de revogação com CRL e ARL (listas de revogação de pessoas ou ACs).
+
+Também pode ser usado o OCSP (Online Certificate Status Protocol). Onde o cliente solicita a AC o status do certificado.
+Porém causa dependência da AC; Privacidade com a AC; Atraso na resposta.
 
 ### Senhas
 
